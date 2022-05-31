@@ -1,0 +1,58 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+body {
+  background-size: 100%;
+}
+.iconpark_icon {
+  width: 1em;
+  height: 1em;
+}
+
+input[type="checkbox"] {
+  display: none; /* 将原生的checkbox隐藏 */
+}
+
+/* label 模拟 “划动条” */
+input[type="checkbox"] + label {
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+  width: 48px;
+  box-sizing: content-box;
+  height: 24px;
+  border-radius: 12px;
+  background-color: #d4d4d8;
+}
+
+/* “label::before伪元素 模拟 “划块” */
+input[type="checkbox"] + label:before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 99;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #f7f4f4;
+  box-shadow: 0 3px 1px rgba(0, 0, 0, 0.05), 0 0px 1px rgba(0, 0, 0, 0.3);
+  -webkit-transition: all 0.1s ease-in;
+  transition: all 0.1s ease-in;
+}
+
+/* checkbox选中状态时，“划动条”的样式 */
+input[type="checkbox"]:checked + label {
+  background: #6ee7b7;
+}
+
+/* checkbox选中状态时，“划块”的样式 */
+input[type="checkbox"]:checked + label:before {
+  content: "";
+  position: absolute;
+  left: 24px;
+  background-color: #16a34a;
+}
